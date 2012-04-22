@@ -4,5 +4,5 @@
 /data       ext4	userdata		/dev/block/mmcblk0p14
 /data/idd   ext4	/dev/block/mmcblk0p10
 /system     ext4	system		/dev/block/mmcblk0p12
-/sdcard     vfat        /dev/block/vold/179:15
+/sdcard     vfat        /dev/block/mmcblk0p15
 

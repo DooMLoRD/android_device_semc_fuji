@@ -9,7 +9,7 @@ TARGET_BOOTLOADER_BOARD_NAME := fuji
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
-TARGET_BOARD_PLATFORM := msm8660
+TARGET_BOARD_PLATFORM := msm7x30
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
@@ -28,20 +28,6 @@ BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
-#disabled new supplicant for now
-# Wifi related defines
-#BOARD_WPA_SUPPLICANT_DRIVER      := WEXT
-#WPA_SUPPLICANT_VERSION           := VER_0_8_X
-#BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
-#BOARD_WLAN_DEVICE                := bcm4330
-#WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcm4330/parameters/firmware_path"
-##WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/bcm4330.ko"
-#WIFI_DRIVER_FW_PATH_STA          := "/etc/firmware/fw_bcm4330.bin"
-#WIFI_DRIVER_FW_PATH_AP           := "/etc/firmware/fw_bcm4330_apsta.bin"
-#WIFI_DRIVER_MODULE_NAME          := "bcm4330"
-#WIFI_DRIVER_MODULE_ARG           := "firmware_path=/etc/firmware/fw_bcm4330.bin nvram_path=/proc/calibration iface_name=wlan"
-#BOARD_WLAN_DEVICE_REV            := bcm4330
-#WIFI_BAND                        := 802_11_ABG
 
 #enabled old supplicant for now
 # Wifi related defines
@@ -86,7 +72,6 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 838860800
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 20044333056
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-BOARD_CUSTOM_BOOTIMG_MK := device/semc/fuji/custombootimg.mk
 TARGET_RECOVERY_PRE_COMMAND := "touch /cache/recovery/boot;sync;"
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_USES_RECOVERY_CHARGEMODE := false
@@ -96,4 +81,4 @@ BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/semc/fuji/recovery/recovery_key
 
 BOARD_SDCARD_INTERNAL_DEVICE := /dev/block/vold/179:15
 # A custom ota package maker for a device without an exposed boot partition
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/semc/fuji/releasetools/semc_ota_from_target_files
+BOARD_BATTERY_CAPACITY_FILE := /sys/devices/i2c-3/3-0055/power_supply/bq27520/capacity
